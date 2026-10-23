@@ -42,9 +42,11 @@ fun AppNavegation(){
         }
 
         composable<Players>{
-            onirPolitics = {navController.navigate(Politics)}
-            onirTeams = {navController.navigate(Teams)}
-            onVolverHome = {navController.popBackStack()}
+            Players(
+                onirPolitics = {navController.navigate(Politics)},
+                onirTeams = {navController.navigate(Teams)},
+                onVolverHome = {navController.popBackStack()}
+            )
         }
 
         composable<PlayerDetail>{
