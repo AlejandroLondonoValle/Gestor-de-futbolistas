@@ -1,31 +1,47 @@
 package com.sena.actividad_03_02.ui.screen
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.Arrangement
+
 
 @Composable
 fun Players(
     onirPolitics: () -> Unit,
-    onirTeams: () -> Unit,
+    onirPlayerDetails: () -> Unit,
     onVolverHome: () -> Unit
 ){
-    Column(
-        modifier = Modifier.fillMaxSize()
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = MaterialTheme.colorScheme.background
     ) {
-        Button(onClick = onirPolitics) {
-            Text(text = "Politicas de Usuario")
-        }
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.spacedBy(12.dp, Alignment.CenterVertically),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
 
-        Button(onClick = onirTeams) {
-            Text(text = "Equipos")
-        }
+            Text(text = "JUGADORES")
 
-        Button(onClick = onVolverHome) {
-            Text(text = "Volver")
+            Button(onClick = onirPolitics) {
+                Text(text = "Politicas de Usuario")
+            }
+
+            Button(onClick = onirPlayerDetails) {
+                Text(text = "Detalles del Jugador")
+            }
+
+            Button(onClick = onVolverHome) {
+                Text(text = "Volver")
+            }
         }
-    }
-}
+    }}

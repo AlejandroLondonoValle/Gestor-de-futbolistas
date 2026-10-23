@@ -10,11 +10,14 @@ import com.sena.actividad_03_02.ui.screen.Politics
 import com.sena.actividad_03_02.ui.screen.Teams
 import com.sena.actividad_03_02.ui.screen.Players
 import com.sena.actividad_03_02.ui.screen.PlayerDetail
+import androidx.compose.ui.Modifier
 
 
 
 @Composable
-fun AppNavegation(){
+fun AppNavegation(
+    modifier: Modifier = Modifier
+){
     val navController = rememberNavController()
     NavHost(
         navController = navController,
@@ -45,7 +48,14 @@ fun AppNavegation(){
         composable<Players>{
             Players(
                 onirPolitics = {navController.navigate(Politics)},
-                onirTeams = {navController.navigate(Teams)},
+                onirPlayerDetails = {navController.navigate(PlayerDetail(
+                    id = 1,
+                    name = "René Higuita",
+                    position = "Arquero",
+                    nationality = "Colombiano",
+                    age = 40,
+                    number = 1
+                ))},
                 onVolverHome = {navController.popBackStack()}
             )
         }

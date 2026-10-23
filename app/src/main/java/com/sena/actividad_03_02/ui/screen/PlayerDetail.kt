@@ -14,12 +14,12 @@ import org.w3c.dom.Text
 
 @Composable
 fun PlayerDetail(
-    id: Int = 1,
-    name: String = "Rene Higuita",
-    position: String = "Arquero",
-    nationality: String = "Colombiano",
-    age: Int = 40,
-    number : Int = 1,
+    id: Int,
+    name: String,
+    position: String,
+    nationality: String,
+    age: Int,
+    number : Int,
     onVolverHome: () -> Unit
 ){
     Surface(
