@@ -30,12 +30,15 @@ fun AppNavegation(){
         composable<Politics>{
             Politics(
                 onVolverHome = {navController.popBackStack()}
+            )
         }
 
         composable<Teams>{
-            onirPolitics = {navController.navigate(Politics)}
-            onirPlayers = {navController.navigate(Players)}
-            onVolverHome = {navController.popBackStack()}
+            Teams(
+                onirPolitics = {navController.navigate(Politics)},
+                onirPlayers = {navController.navigate(Players)},
+                onVolverHome = {navController.popBackStack()}
+            )
         }
 
         composable<Players>{
