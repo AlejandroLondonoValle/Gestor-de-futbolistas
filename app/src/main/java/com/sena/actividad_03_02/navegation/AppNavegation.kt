@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.toRoute
 import com.sena.actividad_03_02.ui.screen.Home
 import com.sena.actividad_03_02.ui.screen.Politics
 import com.sena.actividad_03_02.ui.screen.Teams
@@ -49,15 +50,22 @@ fun AppNavegation(){
             )
         }
 
-        composable<PlayerDetail>{
-            onVolverHome = {navController.popBackStack()}
-            dato -> PlayerDetail(
-                id = dato.arguments?.getInt("id") ?: 0,
-                name = dato.arguments?.getString("name") ?: "",
-                position = dato.arguments?.getString("position") ?: "",
-                nationality = dato.arguments?.getString("nationality") ?: "",
-                age = dato.arguments?.getInt("age") ?: 0,
-                number = dato.arguments?.getInt("number") ?: 0)
+        composable<PlayerDetail>{ backStackEntry ->
+            val args = backStackEntry.toRoute<PlayerDetail>()
+            PlayerDetail(
+                id = args.id,
+                name = args.name,
+                position = args.position,
+                nationality = args.nationality,
+                age = args.age,
+                number = args.number,
+                onVolverHome = {navController.popBackStack()}
+            )
+
+
+
+
+
         }
 
 
